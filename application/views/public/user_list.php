@@ -14,9 +14,9 @@
     <tbody>
         <?php foreach ($list as $row): ?>
         <tr>
-            <td><?=$row['id']?></td>
+            <td><?=$row['data_id']?></td>
             <td>
-                <a href="<?=base_url("public/form/detail/".$row['id'])?>">
+                <a href="<?=base_url("public/form/detail/".$row['data_id'])?>">
                     <?=$row['nama_lengkap']?></td>
                 </a>
             </td>

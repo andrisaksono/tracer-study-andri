@@ -1,24 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_Model extends CI_Model {
+class Question_model extends CI_Model {
 
     var $tableName, $tableId;
 
     function __construct(){
         parent::__construct();
-        $this->tableName = "data";
-        $this->tableId = "data_id";
+        $this->tableName = "question";
+        $this->tableId = "question_id";
     }
+    
+    function create($data,$banyak=false){
 
-    function create($data){
-
-        if($data){
+        if($banyak){
+            $query = $this->db->insert_batch($this->tableName, $data);
+        }else{
             $query = $this->db->insert($this->tableName, $data);
+        }
             return $query;
         }
-    }
-
+        
     function get($id="",$field=""){
 
         if($id){
